@@ -1,0 +1,21 @@
+<%= form_tag "/cars", method: :post do %>
+	<div>
+		Make <input type="text" name="make">
+	</div>
+	<div>
+		Model <input type="text" name="model">
+	</div>
+	<div>
+		Year <input type="text" name="year">
+	</div>
+	<div>
+		Engine <input type="text" name="engine">
+	</div>
+	<div>
+		Color <input type="text" name="color">
+	</div>
+	<div>
+		Price <input type="text" name="price">
+	</div>
+	<input type="submit" value="Create Car">
+<% end %>

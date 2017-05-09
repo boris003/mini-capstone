@@ -1,0 +1,22 @@
+<%= form_tag "/cars/#{(@car.id)}", method: :patch do %>
+	<div>
+		Make <input type="text" name="make" value="<%= @car.make %>">
+	</div>
+	<div>
+		Model <input type="text" name="model" value="<%= @car.model %>">
+	</div>
+	<div>
+		Year <input type="text" name="year" value="<%= @car.year %>">
+	</div>
+	<div>
+		Engine <input type="text" name="engine" value="<%= @car.engine %>">
+	</div>
+	<div>
+		Color <input type="text" name="color" value="<%= @car.color %>">
+	</div>
+	<div>
+		Price <input type="text" name="price" value="<%= @car.price %>">
+	</div>
+	<input type="submit" value="Edit car">
+
+<% end %>
