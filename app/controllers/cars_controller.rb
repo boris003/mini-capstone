@@ -18,7 +18,9 @@ class CarsController < ApplicationController
 			color: params[:color], 
 			price: params[:price]
 			)
-		render "create.html.erb"
+		flash[:success] = "New car is added!"
+		# render "create.html.erb"
+		redirect_to "/cars/#{@new_car.id}"
 	end
 
 	def show
@@ -42,13 +44,17 @@ class CarsController < ApplicationController
 			color: params[:color], 
 			price: params[:price]
 			)
-		render "update.html.erb"
+		flash[:info] = "Information about #{@car.make} #{@car.model} is updated!"
+		# render "update.html.erb"
+		redirect_to "/cars/#{@car.id}"
 	end
 
 	def destroy
 		car = Car.find(params[:id])
 		car.destroy
-		render "destroy.html.erb"
+		# render "destroy.html.erb"
+		flash[:danger] = "#{car.make} #{car.model} is deleted!"
+		redirect_to "/cars"
 	end
 
 end

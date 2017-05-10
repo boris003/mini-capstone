@@ -1,5 +1,9 @@
 <h1> <%= @car.make %> <%= @car.model %> </h1>
-<h2>Year: <%= @car.year %></h2>
-<h2>Engine: <%= @car.engine %></h2>
-<h2>Color: <%= @car.color %></h2>
-<h2>Price: $<%= @car.price %></h2>
+<h2><li>Year: <%= @car.year %></li></h2>
+<h2><li>Engine: <%= @car.engine %></li></h2>
+<h2><li>Color: <%= @car.color %></li></h2>
+<h2><li>Price: $<%= @car.price %></li></h2>
+<img src="<%=@car.image%>" width="500px">
+
+<p>
+<div class="button"> <a href="/"> Return to list </a> </div>

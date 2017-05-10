@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
  
  get "/" => "cars#index"
-
  get "/cars" => "cars#index"
  
  get "/cars/new" => "cars#new"
