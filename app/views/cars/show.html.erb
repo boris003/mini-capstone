@@ -2,8 +2,14 @@
 <h2><li>Year: <%= @car.year %></li></h2>
 <h2><li>Engine: <%= @car.engine %></li></h2>
 <h2><li>Color: <%= @car.color %></li></h2>
+<h2><li> <%= @car.sale_message %></li></h2>
 <h2><li>Price: $<%= @car.price %></li></h2>
 <img src="<%=@car.image%>" width="500px">
+
+<p>
+tax: <%= @car.tax %>
+<p>
+Total: <%= @car.total %>
 
 <p>
 <div class="button"> <a href="/"> Return to list </a> </div>
