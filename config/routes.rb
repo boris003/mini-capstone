@@ -15,4 +15,12 @@ Rails.application.routes.draw do
 
  delete "/cars/:id" => "cars#destroy"
 
+ get "/deals" => "cars#deals"
+
+ post "/search" => "cars#search"
+
+ get "/signup" => "users#new"
+ post "/users" => "users#create"
+
+
 end

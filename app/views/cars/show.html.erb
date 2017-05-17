@@ -4,12 +4,21 @@
 <h2><li>Color: <%= @car.color %></li></h2>
 <h2><li> <%= @car.sale_message %></li></h2>
 <h2><li>Price: $<%= @car.price %></li></h2>
-<img src="<%=@car.image%>" width="500px">
+
+<% @car.images.each do |image| %>
+<img src="<%= image.url %>" width="500px">
+<% end %>
 
 <p>
 tax: <%= @car.tax %>
 <p>
 Total: <%= @car.total %>
+
+<p>
+Provided by: 
+<%= @car.suplier.name %>
+				
+
 
 <p>
 <div class="button"> <a href="/"> Return to list </a> </div>

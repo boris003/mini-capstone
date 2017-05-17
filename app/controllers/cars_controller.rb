@@ -2,6 +2,18 @@ class CarsController < ApplicationController
 
 	def index
 		@cars = Car.all
+		attribute = params[:sort]
+		discount = params[:discount]
+		if attribute = "low_to_high"
+			@cars = Car.all.order(:price)
+		end
+		if attribute = "high_to_low"
+			@cars = Car.all.order(price: :desc)
+		end
+		if discount
+			@cars = Car.all.where("price < ?", 10000)
+		end
+		
 		render "index.html.erb"
 	end
 
@@ -55,6 +67,12 @@ class CarsController < ApplicationController
 		# render "destroy.html.erb"
 		flash[:danger] = "#{car.make} #{car.model} is deleted!"
 		redirect_to "/cars"
+	end
+
+	def search
+		search_text = params[:search]
+		@cars = Car.where("make LIKE ? ", "%#{search_text}%")
+		render "search.html.erb"
 	end
 
 end

@@ -1,7 +1,7 @@
 class Car < ApplicationRecord
-	default_scope { order('id ASC') }
 
-
+	belongs_to :suplier
+	has_many :images
 
 	def car_title
 		"#{car.year} #{car.make} #{car.model}"		
@@ -12,7 +12,7 @@ class Car < ApplicationRecord
 			return "Discount Item"
 		else
 			return "Everyday Value"
-				end		
+		end		
 	end
 
 	def tax
@@ -21,7 +21,6 @@ class Car < ApplicationRecord
 
 	def total
 		return price.to_i + tax
-		
 	end
 
 

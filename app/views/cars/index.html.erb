@@ -11,7 +11,7 @@
 		<% three_car.each do |car| %>
 			<div class="col-md-4">
 				<div class="well"> 
-				  <a href="/cars/<%= car.id %> "><img src="<%= car.image %>"> </a>
+				  <a href="/cars/<%= car.id %> "><img src="<%= car.images.first.url %>"> </a>
 				  <h3> <%= car.make %> <%= car.model %> <%= car.year %> <%= car.engine %> <%= car.color %> $<%= car.price %> </h3>
 					<div class="row">
 						<div class="col-sm-3">
