@@ -2,6 +2,8 @@ class Car < ApplicationRecord
 
 	belongs_to :suplier
 	has_many :images
+	belongs_to :user
+	has_many :orders
 
 	def car_title
 		"#{car.year} #{car.make} #{car.model}"		

@@ -17,8 +17,26 @@ Total: <%= @car.total %>
 <p>
 Provided by: 
 <%= @car.suplier.name %>
-				
-
-
+	
 <p>
+=============================
+<p>
+<p>
+<!-- NEW ORDER FORM -->
+<%= form_tag "/buy_now", method: :post do %>
+  <div>
+    How many? <input type="text" name="quantity">
+  </div>
+  <div>
+     <input class="hidden" type="number" name="product_id" value="<%= @car.id %>">
+  </div>
+  <input type="submit" value="Buy Now">
+<% end %>
+<!-- END ORDER FORM -->
+<p>   
+<p>
+=============================
+<p>
+
+<p>   
 <div class="button"> <a href="/"> Return to list </a> </div>

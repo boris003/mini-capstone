@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+	has_mane :cars
+
 	def new
     render 'new.html.erb'
   end
