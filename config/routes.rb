@@ -28,4 +28,11 @@ Rails.application.routes.draw do
 
  post "/buy_now" => "orders#create"
 
+
+ get "categories/cars" => "categories#cars"
+ get "categories/motorcycles" => "categories#motorcycles"
+ get "categories/convertible" => "categories#convertible"
+ get "categories/sport" => "categories#sport"
+
+
 end

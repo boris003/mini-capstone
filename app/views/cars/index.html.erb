@@ -4,11 +4,11 @@
 <h1> All vehicles</h1>
 
 
-<% @cars.each_slice(3) do |three_car| %>
+<% @cars.each_slice(3) do |three_cars| %>
 
 	<div class="row">
 
-		<% three_car.each do |car| %>
+		<% three_cars.each do |car| %>
 			<div class="col-md-4">
 				<div class="well"> 
 				  <a href="/cars/<%= car.id %> "><img src="<%= car.images.first.url %>"> </a>
