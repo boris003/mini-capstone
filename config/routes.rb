@@ -26,13 +26,21 @@ Rails.application.routes.draw do
  post "/login" => "sessions#create"
  get "/logout" => "sessions#destroy"
 
- post "/buy_now" => "orders#create"
+ post "/carted_products" => "carted_products#create"
 
 
  get "categories/cars" => "categories#cars"
  get "categories/motorcycles" => "categories#motorcycles"
  get "categories/convertible" => "categories#convertible"
  get "categories/sport" => "categories#sport"
+
+ get "/carted_products" => "carted_products#index"
+ delete "/carted_products/:id" => "carted_products#destroy"
+
+ patch "/orders/:id" => "orders#update"
+ get "/orders/:id" => "orders#show"
+
+
 
 
 end

@@ -30,14 +30,14 @@ Provided by:
 <p>
 <p>
 <!-- NEW ORDER FORM -->
-<%= form_tag "/buy_now", method: :post do %>
+<%= form_tag "/carted_products", method: :post do %>
   <div>
     How many? <input type="text" name="quantity">
   </div>
   <div>
-     <input class="hidden" type="number" name="product_id" value="<%= @car.id %>">
+     <input class="hidden" type="number" name="car_id" value="<%= @car.id %>">
   </div>
-  <input type="submit" value="Buy Now">
+  <input type="submit" value="Add to Cart">
 <% end %>
 <!-- END ORDER FORM -->
 <p>   

@@ -1,30 +1,28 @@
 class OrdersController < ApplicationController
 
-  def create
-    if current_user
-      quantity = params[:quantity].to_i
-      product_id = params[:product_id]
-      car = Car.find_by(id: product_id)
-      subtotal = car.price * quantity
-      tax = subtotal * 0.09
-      total = tax + subtotal
-
-      new_order = Order.create(
-        quantity: params[:quantity], 
-        car_id: product_id, 
-        subtotal: subtotal, 
-        tax: tax, 
-        total: total, 
-        user_id: current_user.id 
-        )
-      
-      flash[:success] = "We got your order. We will contact you.. Maybe.."
-      flash[:info] = "Your order id is #{new_order.car_id}. We don't have deluvery, so you'll have to pick it up from Union City Bart station parking"
-      redirect_to "/"
-    else
-      flash[:warning] = "Too bad! You have to Log In first!"
-      redirect_to "/login"
+  def update
+    order_id = params[:id]
+    order = Order.find_by(id: order_id)
+    subtotal = 0
+    order.carted_products.each do |carted_product|
+      subtotal += carted_product.car.price * carted_product.quantity
     end
+    tax = subtotal * 0.09
+
+    order.completed = true
+    order
+    order.tax = tax
+    order.subtotal = subtotal
+    order.total = subtotal + tax
+    order.save
+      
+    flash[:success] = "You order has been placed!"
+    redirect_to "/orders/#{order_id}"
+  end
+
+  def show
+    @order = Order.find_by(id: params[:id])
+    render "show.html.erb"    
   end
 
 end

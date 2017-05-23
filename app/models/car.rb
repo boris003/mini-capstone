@@ -6,7 +6,7 @@ class Car < ApplicationRecord
 	has_many :orders
 	has_many :category_cars
 	has_many :categories, through: :category_cars
-
+  has_many :carted_products
 
 
 
