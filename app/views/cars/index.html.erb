@@ -1,5 +1,7 @@
+<% if current_user && current_user.admin %>
+	
 <button class="button"> <a href="/cars/new"> Add a new car</a></button>
-
+<% end %>
 
 <h1> All vehicles</h1>
 
@@ -16,12 +18,14 @@
 					<div class="row">
 						<div class="col-sm-3">
 						</div>
-						<div class="col-sm-3">
-					  <%= button_to "Edit", {action: "edit", id: car.id}, method: :get %> 
-						</div>
-						<div class="col-sm-3">
-					  <%= button_to "Delete", {action: "destroy", id: car.id}, method: :delete, data: { confirm: "Are you sure?" } %>
-					  	</div>
+						<% if current_user && current_user.admin %>
+							<div class="col-sm-3">
+						  <%= button_to "Edit", {action: "edit", id: car.id}, method: :get %> 
+							</div>
+							<div class="col-sm-3">
+						  <%= button_to "Delete", {action: "destroy", id: car.id}, method: :delete, data: { confirm: "Are you sure?" } %>
+						  </div>
+				  	<% end %>
 				  	</div>
 			  	</div>
 			</div>

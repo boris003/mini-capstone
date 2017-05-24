@@ -18,7 +18,11 @@ class CarsController < ApplicationController
 	end
 
 	def new
-		render "new.html.erb"
+		if current_user && current_user.admin
+			render "new.html.erb"
+		else
+			redirect_to "/"
+		end
 	end
 
 	def create
@@ -42,8 +46,12 @@ class CarsController < ApplicationController
 	end
 
 	def edit
-		@car = Car.find(params[:id])
-		render "edit.html.erb"
+		if current_user && current_user.admin
+			@car = Car.find(params[:id])
+			render "edit.html.erb"
+		else
+			redirect_to "/"
+		end
 	end
 
 	def update
