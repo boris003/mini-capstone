@@ -8,7 +8,9 @@ class Car < ApplicationRecord
 	has_many :categories, through: :category_cars
   has_many :carted_products
 
-
+  validates :price, presence: true, numericality: true
+  validates :make, presence: true
+  validates :model, presence: true
 
   def car_title
     "#{car.year} #{car.make} #{car.model}"    

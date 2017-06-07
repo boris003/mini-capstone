@@ -1,5 +1,7 @@
 class CarsController < ApplicationController
 
+	before_action :authenticate_admin!, except: [:index, :show, :search]
+
 	def index
 		@cars = Car.all
 		attribute = params[:sort]
@@ -18,24 +20,19 @@ class CarsController < ApplicationController
 	end
 
 	def new
-		if current_user && current_user.admin
 			render "new.html.erb"
-		else
-			redirect_to "/"
-		end
 	end
 
 	def create
 		@new_car = Car.create(
 			make: params[:make],
 			model: params[:model],
-			year: params[:year], 
-			engine: params[:engine], 
+			year: params[:year],
+			engine: params[:engine],
 			color: params[:color], 
 			price: params[:price]
 			)
 		flash[:success] = "New car is added!"
-		# render "create.html.erb"
 		redirect_to "/cars/#{@new_car.id}"
 	end
 
@@ -46,12 +43,8 @@ class CarsController < ApplicationController
 	end
 
 	def edit
-		if current_user && current_user.admin
 			@car = Car.find(params[:id])
 			render "edit.html.erb"
-		else
-			redirect_to "/"
-		end
 	end
 
 	def update

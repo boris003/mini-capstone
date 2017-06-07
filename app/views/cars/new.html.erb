@@ -1,3 +1,15 @@
+<div>
+  <% if @car && @pcar.errors.any? %>
+    <h3><%= @car.errors.count %> errors prohibited this product from being saved</h3>
+    <ul>
+      <% @car.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
+
 <%= form_tag "/cars", method: :post do %>
 	<div>
 		Make <input type="text" name="make">
