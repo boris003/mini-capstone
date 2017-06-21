@@ -22,7 +22,6 @@ Rails.application.routes.draw do
 
  post "/carted_products" => "carted_products#create"
 
-
  get "categories/cars" => "categories#cars"
  get "categories/motorcycles" => "categories#motorcycles"
  get "categories/convertible" => "categories#convertible"
