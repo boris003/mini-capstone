@@ -1,5 +1,5 @@
 <div>
-  <% if @car && @pcar.errors.any? %>
+  <% if @car && @car.errors.any? %>
     <h3><%= @car.errors.count %> errors prohibited this product from being saved</h3>
     <ul>
       <% @car.errors.full_messages.each do |message| %>
